@@ -11,3 +11,15 @@ exports.homePage = (req, res) => {
     console.log(req.name);
     res.render('index');
 };
+
+exports.addStore = (req, res) => {
+    // res.send('<h1>ADD A STORE BRO</h1>');
+    res.render('setUpStore', { title: 'Add a Store' });
+}
+exports.createStore = (req, res) => {
+    // res.json(req.body);
+    const store = new Store(req.body);
+    store.save();
+    store.age = 22;
+    store.cool = true;
+}
