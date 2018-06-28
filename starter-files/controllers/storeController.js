@@ -6,20 +6,28 @@
 //     // }
 //     next();
 // }
+const mongoose = require('mongoose');
+const Store = mongoose.model('Store');
 
 exports.homePage = (req, res) => {
     console.log(req.name);
+    req.flash('error', ' <strong>Something</strong> happened');
+    req.flash('info', 'Something happened');
+    req.flash('warning', ' <strong>Something</strong> happened');
+    req.flash('success', 'Something happened');
     res.render('index');
 };
 
+
+
 exports.addStore = (req, res) => {
     // res.send('<h1>ADD A STORE BRO</h1>');
-    res.render('setUpStore', { title: 'Add a Store' });
+    res.render('editStore', {
+        title: 'Add a Store'
+    });
 }
-exports.createStore = (req, res) => {
-    // res.json(req.body);
-    const store = new Store(req.body);
-    store.save();
-    store.age = 22;
-    store.cool = true;
-}
+exports.createStore = async (req, res) => {
+    const store = await (new Store(req.body)).save();
+    req.flash('success', `Successfully created ${store.name}. Care to leave a review?`);
+    res.redirect(`/store/${store.slug}`);
+};
