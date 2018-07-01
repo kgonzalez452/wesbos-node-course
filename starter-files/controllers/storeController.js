@@ -41,3 +41,10 @@ exports.getStores = async (req, res) => {
         stores
     });
 };
+
+exports.editStore = async (req, res) => {
+    // 1. Find the store given the id
+    res.json(req.params);
+    // 2. confirm they are the owner of the store
+    // 3. render out the edit form so the user can update their store
+}
