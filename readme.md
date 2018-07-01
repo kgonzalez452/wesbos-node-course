@@ -1,5 +1,8 @@
 [![](http://wes.io/kH9O/wowwwwwwwww.jpg)](https://LearnNode.com)
 
+# Randy
+  npm start on the starter files, and sudo mongod. If you need access to the database I used MongoDB Compass Beta. Just copy the the credentials from variables.env to your clipboard and it should ask you if you want to connect to the database that was copied to your clipboard.
+
 # Learn Node Starter Files + Stepped Solutions
 
 These are the starter files and stepped solutions to accompany the LearnNode.com course.
